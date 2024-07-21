@@ -16,7 +16,7 @@ interface WalletBalance {
     "Arbitrum":30,
     "Zilliqa":20,
     "Neo":20,
-    "Default": -99
+    "Min": -99
     };
 
   interface Props extends BoxProps {}
@@ -31,7 +31,7 @@ interface WalletBalance {
       return balances.filter((balance: WalletBalance) => {
             const balancePriority = Priority[balance.currency];
             
-            return balancePriority > Priority["Default"] && balance.amount <=0 ? true : false
+            return balancePriority > Priority["Min"] && balance.amount <=0 ? true : false
           
           }).sort((leftWalletBalance: WalletBalance, rightWalletBalance: WalletBalance) => {
             
